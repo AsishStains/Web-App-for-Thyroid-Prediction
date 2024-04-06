@@ -1,6 +1,7 @@
 import numpy as np
 import pickle
 import streamlit as st
+import sklearn
 
 # Load the Random Forest model and the encoder
 @st.cache_data()
