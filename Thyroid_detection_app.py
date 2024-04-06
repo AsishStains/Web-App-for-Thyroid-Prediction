@@ -62,7 +62,7 @@ if __name__ == "__main__":
     rf_model, encoder_rf = load_model()
 
     # Define class mapping
-    class_mapping = {0: 'compensated_thyroid', 1: 'hyperthyroid', 2: 'negative', 3: 'primary_thyroid'}
+    class_mapping = {0: 'compensated_hypothyroid', 1: 'hyperthyroid', 2: 'negative', 3: 'primary_hypothyroid'}
 
     # Title of the web app
     st.title('Thyroid Disease Detection')
