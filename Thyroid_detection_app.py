@@ -3,12 +3,19 @@ import numpy as np
 import pickle
 import asyncio
 
+# Install xgboost
+import sys
+!{sys.executable} -m pip install xgboost
+
 class_mapping = {
     0: 'compensated_hypothyroid',
     1: 'hyperthyroid',
     2: 'negative',
     3: 'primary_hypothyroid'
 }
+
+# Rest of your code remains unchanged
+
 
 def load_model_and_encoder(model_path, encoder_path):
     model = pickle.load(open(model_path, "rb"))
