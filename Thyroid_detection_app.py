@@ -2,10 +2,11 @@ import streamlit as st
 import numpy as np
 import pickle
 import asyncio
+import subprocess
+import sys
 
 # Install xgboost
-import sys
-!{sys.executable} -m pip install xgboost
+subprocess.check_call([sys.executable, "-m", "pip", "install", "xgboost"])
 
 class_mapping = {
     0: 'compensated_hypothyroid',
@@ -15,6 +16,7 @@ class_mapping = {
 }
 
 # Rest of your code remains unchanged
+
 
 
 def load_model_and_encoder(model_path, encoder_path):
