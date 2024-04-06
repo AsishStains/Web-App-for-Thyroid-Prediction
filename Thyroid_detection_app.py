@@ -2,15 +2,14 @@ import numpy as np
 import pickle
 import streamlit as st
 import sklearn
+import sys
 
 # Load the Random Forest model and the encoder
-@st.cache_data()
+@st.cache()
 def load_model():
     rf_model = pickle.load(open("tddmodelml_rf.pkl", "rb"))
     encoder_rf = pickle.load(open("encoder_rf.pickle", "rb"))
     return rf_model, encoder_rf
-
-
 
 # Function to predict thyroid class based on user input
 def predict_thyroid_class_rf(model, encoder):
@@ -37,7 +36,7 @@ def predict_thyroid_class_rf(model, encoder):
         return
 
     # Convert sex to numerical value (0 for 'F', 1 for 'M')
-    sex_numeric = 0 if sex.upper() == 'F' else 1
+    sex_numeric = 0 if sex.upper() == 'FEMALE' else 1
 
     # Create a numpy array with the user input
     input_data = np.array([[age, sex_numeric, tsh, t3, t4]])
@@ -58,6 +57,9 @@ def predict_thyroid_class_rf(model, encoder):
     st.write("Predicted Class:", mapped_class)
 
 if __name__ == "__main__":
+    # Print the Python interpreter path
+    st.write("Python Interpreter Path:", sys.executable)
+    
     # Load the trained model and encoder
     rf_model, encoder_rf = load_model()
 
