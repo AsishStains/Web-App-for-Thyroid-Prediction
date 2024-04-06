@@ -43,8 +43,8 @@ async def main():
     sex_numeric = 0 if sex == 'Female' else 1
     input_data = np.array([[age, sex_numeric, tsh, t3, t4]])
 
-    model_path = "tddmodelml.pkl"
-    encoder_path = "encoder.pickle"
+    model_path = "tddmodelml_rf.pkl"
+    encoder_path = "encoder_rf.pickle"
     model, encoder = load_model_and_encoder(model_path, encoder_path)
 
     if st.button("Predict"):
