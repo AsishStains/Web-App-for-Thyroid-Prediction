@@ -1,8 +1,7 @@
 import numpy as np
 import pickle
 import streamlit as st
-import sklearn
-import sys
+import sys  # Import sys module to access Python interpreter path
 
 # Load the Random Forest model and the encoder
 @st.cache_data()
@@ -49,6 +48,7 @@ def predict_thyroid_class_rf(model, encoder):
     predicted_class = predicted_class.astype(int)
 
     # Decode the predicted class using the label encoder
+    # Note: You need to define 'encoder' and 'class_mapping' variables elsewhere in your code
     decoded_class = encoder.inverse_transform(predicted_class)
 
     # Map the decoded class to the corresponding label
