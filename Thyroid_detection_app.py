@@ -5,11 +5,12 @@ import sklearn
 import sys
 
 # Load the Random Forest model and the encoder
-@st.cache()
+@st.cache_data()
 def load_model():
     rf_model = pickle.load(open("tddmodelml_rf.pkl", "rb"))
     encoder_rf = pickle.load(open("encoder_rf.pickle", "rb"))
     return rf_model, encoder_rf
+
 
 # Function to predict thyroid class based on user input
 def predict_thyroid_class_rf(model, encoder):
